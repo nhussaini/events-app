@@ -1,23 +1,20 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-const EventsCatPage = ({ data }) => {
+const EventsCatPage = ({ data, pageName }) => {
   return (
     <div>
-      <h1>Events in London</h1>
+      <h1>Events in {pageName}</h1>
 
       {data.map((ev) => (
-        <a key={ev.id} href={`/events/${ev.city}/${ev.id}`}>
+        <Link key={ev.id} href={`/events/${ev.city}/${ev.id}`}>
+          {/* <a> */}
           <Image width={300} height={300} alt={ev.title} src={ev.image} />
           <h2>{ev.title}</h2>
           <p>{ev.description}</p>
-        </a>
+          {/* </a> */}
+        </Link>
       ))}
-
-      {/* <a href="/events/event1">Event 1</a>
-      <a href="/events/event2">Event 2</a>
-      <a href="/events/event3">Event 3</a>
-      <a href="/events/event4">Event 4</a>
-      <a href="/events/event5">Event 5</a> */}
     </div>
   );
 };
@@ -49,6 +46,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       data: data,
+      pageName: id,
     },
   };
 }
