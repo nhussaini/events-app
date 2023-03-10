@@ -21,6 +21,10 @@ const SingleEvent = ({ data }) => {
         },
         body: JSON.stringify({ email: emailValue, eventId }),
       });
+
+      if (!response.ok) throw new Error(`Error: ${response.status}`);
+      const data = await response.json();
+      console.log('POST', data.message);
     } catch (e) {
       console.log('ERROR', e);
     }
