@@ -17,18 +17,7 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <nav>
-          <img />
-
-          <Link href="/">Home</Link>
-          <Link href="/events">Events</Link>
-          <Link href="/about-us">about-us</Link>
-        </nav>
-      </header>
       <HomePage data={data} />
-
-      <footer className="{styles.footer}">2023 Time to code-Nasrullah</footer>
     </>
   );
 }
